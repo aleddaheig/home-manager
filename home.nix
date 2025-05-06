@@ -76,6 +76,9 @@
           . /etc/bash_completion
         fi
       fi
+
+      . "${pkgs.git}/share/git/contrib/completion/git-prompt.sh"
+      export PS1='\[\033[01;32m\]\u@\h \[\033[01;36m\]\w\[\033[01;34m\]$(__git_ps1 " (%s)")\[\033[00m\] \$ '
     '';
   };
 
@@ -84,7 +87,6 @@
     VSCODE_GALLERY_SERVICE_URL = "https://marketplace.visualstudio.com/_apis/public/gallery";
     VSCODE_GALLERY_ITEM_URL = "https://marketplace.visualstudio.com/items";
     EDITOR = "nvim";
-    PS1 = "\[\033[38;5;33m\]\u@\h \[\033[38;5;39m\]\w\[\033[00m\]\$ ";
   };
 
   home.sessionPath = [
